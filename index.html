@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>全民飞机大战</title>
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+<body>
+	<div id="bg">
+		<div id="info"></div>
+		<div class="logoBg">
+			<div id="logo"></div>
+		</div>
+		<div name="buttonstart" id="buttonstart"></div>
+		<!-- 方法二
+		<div name="buttonStart" id="buttonStart" onclick="gameStart(this)">
+		-->
+	</div>
+
+	<script>
+	/*开始游戏 页面切换效果*/
+		var opacity = 1.0;
+		var bg = document.getElementById("bg");
+		var handler;
+	/*推荐使用 点击开始游戏的效果*/
+		var buttonstart = document.getElementById("buttonstart");
+		buttonstart.onclick = function(obj){
+			alert("上班别玩游戏！！");
+			handler = setInterval(fadeout,20); //毫秒
+			obj.style.width="200px";
+		}
+		function fadeout(){
+			opacity -= 0.02;
+			if(opacity >= 0){
+				bg.style.opacity = opacity;
+			}else{
+				document.location = "game.html";
+				clearInterval(handler);
+			}
+		}
+	</script>
+
+<!-- 方法二
+	<script>
+	/*开始游戏的页面切换效果*/
+		var opacity = 1.0;
+		var bg = document.getElementById("bg");
+		var handler;
+	/*推荐使用 点击开始游戏的效果*/
+		function gameStart(obj){
+			handler = setInterval(fadeout, 20);
+			obj.style.width = "200px";
+		}
+		function fadeout(){
+			opacity -= 0.02;
+			if(opacity >= 0){
+				bg.style.opacity = opacity;
+			}else{
+				document.location = "game.html";
+				clearInterval(handler);
+			}
+		}
+	</script>
+-->
+
+</body>
